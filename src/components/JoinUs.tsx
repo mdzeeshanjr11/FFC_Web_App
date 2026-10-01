@@ -1,20 +1,29 @@
 import { useState } from 'react';
-import { Instagram, Send, Check } from 'lucide-react';
+import { Instagram, MessageCircle, Check } from 'lucide-react';
 import { useReveal } from '@/hooks/useReveal';
 import { clubInfo } from '@/data/clubData';
 
 export default function JoinUs() {
   const ref = useReveal<HTMLDivElement>();
-  const [form, setForm] = useState({ name: '', email: '', position: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({ name: '', phone: '', position: '', message: '' });
+  const [whatsappOpened, setWhatsappOpened] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setForm({ name: '', email: '', position: '', message: '' });
-    }, 3000);
+    const application = [
+      'Hello Coach, I would like to join FFC.',
+      '',
+      `Name: ${form.name}`,
+      `WhatsApp: ${form.phone}`,
+      `Preferred position: ${form.position}`,
+      '',
+      `Message: ${form.message || 'No additional message'}`,
+    ].join('\n');
+    const whatsappUrl = `https://wa.me/${clubInfo.whatsapp}?text=${encodeURIComponent(application)}`;
+
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    setWhatsappOpened(true);
+    setTimeout(() => setWhatsappOpened(false), 5000);
   };
 
   return (
@@ -51,11 +60,11 @@ export default function JoinUs() {
                   className="w-full px-5 py-3.5 rounded-xl bg-ink-800 border border-white/10 text-white placeholder-brand-400 focus:border-accent focus:outline-none transition-colors"
                 />
                 <input
-                  type="email"
+                  type="tel"
                   required
-                  placeholder="Email Address"
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  placeholder="Your WhatsApp Number"
+                  value={form.phone}
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   className="w-full px-5 py-3.5 rounded-xl bg-ink-800 border border-white/10 text-white placeholder-brand-400 focus:border-accent focus:outline-none transition-colors"
                 />
               </div>
@@ -81,23 +90,28 @@ export default function JoinUs() {
               />
               <button
                 type="submit"
-                disabled={submitted}
+                disabled={whatsappOpened}
                 className={`w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm tracking-wide transition-all duration-300 ${
-                  submitted
+                  whatsappOpened
                     ? 'bg-green-500 text-ink-900'
                     : 'bg-white text-ink-900 hover:bg-accent hover:scale-[1.02]'
                 }`}
               >
-                {submitted ? (
+                {whatsappOpened ? (
                   <>
-                    <Check size={18} /> Application Sent!
+                    <Check size={18} /> WhatsApp Opened
                   </>
                 ) : (
                   <>
-                    <Send size={16} /> Submit Application
+                    <MessageCircle size={16} /> Continue in WhatsApp
                   </>
                 )}
               </button>
+              {whatsappOpened && (
+                <p role="status" className="text-sm text-green-300">
+                  Your application is ready in WhatsApp. Tap Send there to deliver it to the coach.
+                </p>
+              )}
             </form>
           </div>
 

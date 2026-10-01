@@ -23,6 +23,7 @@ export const clubInfo = {
   shortName: 'FFC',
   motto: 'United by passion, powered by independence.',
   established: '2022',
+  whatsapp: '919673593959',
   instagram: 'https://www.instagram.com/friends_fc_ffc',
   instagramHandle: '@friends_fc_ffc',
   followers: '326',
@@ -71,7 +72,7 @@ export const squad: SquadPlayer[] = [
     stats: { pac: 84, sho: 89, pas: 76, def: 38 },
   },
   {
-    name: 'Kashif Khan',
+    name: 'Kashif',
     role: 'center back',
     number: 4,
     position: 'CB',
@@ -161,6 +162,7 @@ export const squad: SquadPlayer[] = [
     stats: { pac: 85, sho: 68, pas: 68, def: 77 },
   },
   { name: 'Zain khan',
+
     role: 'midfielder',
     number: 9,
     position: 'CM',

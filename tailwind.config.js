@@ -37,6 +37,7 @@ export default {
         'slide-in-right': 'slideInRight 0.8s ease-out forwards',
         'scale-in': 'scaleIn 0.6s ease-out forwards',
         'float': 'float 6s ease-in-out infinite',
+        'crest': 'crest 5s ease-in-out infinite',
         'pulse-slow': 'pulseSlow 4s ease-in-out infinite',
         'marquee': 'marquee 30s linear infinite',
       },
@@ -64,6 +65,16 @@ export default {
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-15px)' },
+        },
+        crest: {
+          '0%, 100%': {
+            transform: 'translateY(0) rotate(-2deg) scale(1)',
+            boxShadow: '0 12px 30px rgba(234, 179, 8, 0.14)',
+          },
+          '50%': {
+            transform: 'translateY(-10px) rotate(2deg) scale(1.04)',
+            boxShadow: '0 20px 46px rgba(234, 179, 8, 0.34)',
+          },
         },
         pulseSlow: {
           '0%, 100%': { opacity: '0.4' },

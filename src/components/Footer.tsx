@@ -1,5 +1,6 @@
 import { Instagram, Heart } from 'lucide-react';
 import { clubInfo, navLinks } from '@/data/clubData';
+import ffcLogo from '@/assets/ffc.jpg';
 
 export default function Footer() {
   return (
@@ -9,9 +10,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
-                <span className="font-display text-ink-900 text-sm">FFC</span>
-              </div>
+              <img src={ffcLogo} alt="Friends FC logo" className="w-12 h-12 rounded-full object-contain bg-white" />
               <div>
                 <p className="font-display text-lg leading-none tracking-wide">FRIENDS FC</p>
                 <p className="text-[10px] text-brand-300 tracking-[0.2em] uppercase">Est. {clubInfo.established}</p>
@@ -64,7 +63,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Friends Football Club. All rights reserved.
           </p>
           <p className="text-xs text-brand-400 flex items-center gap-1.5">
-            Made with zee.dev for FFC
+            Made with zeeshan hussain for FFC
           </p>
         </div>
       </div>

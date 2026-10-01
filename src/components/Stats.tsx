@@ -43,8 +43,8 @@ export default function Stats() {
   const ref = useReveal<HTMLDivElement>();
 
   return (
-    <section className="relative py-20 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-ink-800 via-ink-700 to-ink-800" />
+    <section className="relative py-16 overflow-hidden">
+      <div className="absolute inset-0 bg-grid opacity-20" />
       <div className="absolute inset-0 bg-noise opacity-5" />
 
       <div ref={ref} className="reveal relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,7 +52,7 @@ export default function Stats() {
           <img
             src={ffcLogo}
             alt="Friends Football Club logo"
-            className="h-36 w-36 rounded-full border-2 border-accent/60 object-cover shadow-xl shadow-accent/20 animate-float motion-reduce:animate-none sm:h-40 sm:w-40"
+            className="h-36 w-36 rounded-full border-2 border-accent/60 object-cover shadow-xl shadow-accent/20 animate-crest motion-reduce:animate-none sm:h-40 sm:w-40"
           />
           <p className="flex items-center gap-3 font-display text-lg uppercase tracking-[0.24em] text-accent sm:text-xl">
             <span className="h-px w-8 bg-accent/60 sm:w-12" aria-hidden="true" />

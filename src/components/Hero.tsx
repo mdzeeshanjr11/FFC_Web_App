@@ -22,7 +22,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen min-h-[100svh] flex items-center justify-center overflow-hidden">
       {/* Background slider */}
       <div className="absolute inset-0 z-0">
         {sliderImages.map((src, i) => (
@@ -34,7 +34,7 @@ export default function Hero() {
             <img
               src={src}
               alt="Football action"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
             />
           </div>
         ))}
