@@ -142,7 +142,7 @@ export const squad: SquadPlayer[] = [
     stats: { pac: 79, sho: 73, pas: 78, def: 42 },
   },
   {
-    name: 'Umar',
+    name: 'Umar khan',
     role: 'Midfielder',
     number: 8,
     position: 'CDM',
